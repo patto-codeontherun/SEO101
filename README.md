@@ -20,4 +20,4 @@ It includes real-world examples, tips, and best practices to help you master str
 ## 🚀 How to Use  
 1. Clone the repository:  
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/patto-codeontherun/SEO101.git
