@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>คู่มือการจัดรูปแบบสตริงใน Python ฉบับสมบูรณ์</title>
+  <meta
+    name="description"
+    content="เรียนรู้วิธีการจัดรูปแบบสตริงใน Python แบบครบถ้วน พร้อมตัวอย่างการใช้งานจริง เทคนิคขั้นสูง และแนวทางปฏิบัติที่ดีที่สุด ครอบคลุมทั้ง f-strings, str.format() และ %-formatting"
+  />
+  <meta
+    name="keywords"
+    content="Python, การจัดรูปแบบสตริง, f-strings, str.format, %-formatting, การเขียนโปรแกรม, คู่มือ, ปริ๊นค่า, สตริง, แสดงผลสตริง, แปลงสตริง, ไพต้อน, ไพธอน, การจัดการข้อความ, string manipulation"
+  />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <style>
+    .output {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-top: 10px;
+      font-family: monospace;
+    }
+    pre {
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="#">
+          <img src="./logo_3.png" alt="Patto Logo" />
+        </a>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="ค้นหาบทความ..." />
+        <button>Search</button>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <h1>การจัดรูปแบบสตริงใน Python</h1>
+    <div class="tip-box">
+      <p>ในบทความนี้คุณจะได้เรียนรู้วิธีการจัดการข้อความใน Python ด้วยเทคนิคต่างๆ พร้อมตัวอย่างการใช้งานจริง</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>1. วิธีการจัดรูปแบบสตริงแบบต่างๆ</h2>
+
+    <div class="example-card">
+      <h3>1.1 % - formatting (แบบดั้งเดิม)</h3>
+      <pre><code class="language-python">
+name = "Alice"
+age = 30
+print("สวัสดี ฉันชื่อ %s และอายุ %d ปี" % (name, age)) 
+
+# การจัดรูปแบบตัวเลข
+price = 1234.5678
+print("ราคา: %.2f บาท" % price)  # แสดงทศนิยม 2 ตำแหน่ง
+      </code></pre>
+      <div class="output">
+        <p><strong>Output:</strong></p>
+        <pre>
+สวัสดี ฉันชื่อ Alice และอายุ 30 ปี
+ราคา: 1234.57 บาท
+        </pre>
+      </div>
+    </div>
+
+    <div class="example-card">
+      <h3>1.2 str.format() (แบบยืดหยุ่น)</h3>
+      <pre><code class="language-python">
+# การใช้งานพื้นฐาน
+name = "Bob"
+price = 99.99
+print("สินค้า: {}, ราคา: {:.2f}".format(name, price))
+
+# การระบุตำแหน่ง
+print("{1} มีราคา {0:.2f} บาท".format(price, name))
+
+# การใช้ชื่อตัวแปร
+print("{product} มีราคา {cost:.2f} บาท".format(
+    product=name,
+    cost=price
+))
+      </code></pre>
+      <div class="output">
+        <p><strong>Output:</strong></p>
+        <pre>
+สินค้า: Bob, ราคา: 99.99
+Bob มีราคา 99.99 บาท
+Bob มีราคา 99.99 บาท
+        </pre>
+      </div>
+    </div>
+
+    <div class="example-card">
+      <h3>1.3 f-strings (แบบแนะนำ)</h3>
+      <pre><code class="language-python">
+quantity = 5
+item = "แอปเปิ้ล"
+print(f"คุณต้องการซื้อ {quantity} {item}")
+
+# การใช้นิพจน์
+price = 20
+total = quantity * price
+print(f"ราคารวม: {total:,} บาท")
+
+# การเรียกใช้เมธอด
+text = "python"
+print(f"ข้อความตัวใหญ่: {text.upper()}")
+      </code></pre>
+      <div class="output">
+        <p><strong>Output:</strong></p>
+        <pre>
+คุณต้องการซื้อ 5 แอปเปิ้ล
+ราคารวม: 100 บาท
+ข้อความตัวใหญ่: PYTHON
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>2. เทคนิคขั้นสูง</h2>
+
+    <div class="example-card">
+      <h3>2.1 การจัดรูปแบบตัวเลข</h3>
+      <pre><code class="language-python">
+number = 1234567.89
+print(f"ตัวเลขทั่วไป: {number}")
+print(f"ทศนิยม 2 ตำแหน่ง: {number:.2f}")
+print(f"คั่นหลักพัน: {number:,.2f}")
+print(f"เปอร์เซ็นต์: {number:.2%}")
+      </code></pre>
+      <div class="output">
+        <p><strong>Output:</strong></p>
+        <pre>
+ตัวเลขทั่วไป: 1234567.89
+ทศนิยม 2 ตำแหน่ง: 1234567.89
+คั่นหลักพัน: 1,234,567.89
+เปอร์เซ็นต์: 123456789.00%
+        </pre>
+      </div>
+    </div>
+
+    <div class="example-card">
+      <h3>2.2 การจัดตำแหน่งและความกว้าง</h3>
+      <pre><code class="language-python">
+text = "Python"
+print(f"|{text:15}|")  # ชิดซ้าย
+print(f"|{text:>15}|") # ชิดขวา
+print(f"|{text:^15}|") # กึ่งกลาง
+print(f"|{text:*^15}|") # เติมด้วยเครื่องหมาย
+      </code></pre>
+      <div class="output">
+        <p><strong>Output:</strong></p>
+        <pre>
+|Python         |
+|         Python|
+|     Python     |
+|*****Python*****|
+        </pre>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Patto-codeontherun</p>
+    <p><a href="https://docs.python.org/3/library/string.html">เรียนรู้เพิ่มเติมเกี่ยวกับการจัดรูปแบบสตริงใน Python</a></p>
+  </footer>
+</body>
+</html>

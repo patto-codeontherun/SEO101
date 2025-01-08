@@ -1,0 +1,16 @@
+{
+  "name": "seo101",
+  "version": "1.0.0",
+  "description": "Y2024/2 RMUTP-Web Programming mini project#1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^5.0.0",
+    "gulp-less": "^5.0.0",
+    "gulp-sass": "^6.0.0"
+  }
+}
